@@ -8,6 +8,7 @@
     --darksections-color: #2F303A;
     --lightsection-color: #E5E5E5;
     --middlesection-color: #F5F4FA;
+    --icon-color: #AFB1B8;
 }
 
 *,
@@ -56,7 +57,10 @@ img {
 
 .navigation,
 .navigation-list,
-.address-list {
+.address-list,
+.address-list-item,
+.navigation-list-link,
+.address-list-link  {
     display: flex;
     align-items: center;
 }
@@ -104,8 +108,7 @@ img {
 .footer-mail-link:hover,
 .footer-mail-link:focus,
 .footer-tel-link:hover,
-.footer-tel-link:focus
-{
+.footer-tel-link:focus {
     color: var(--accent-color);    
 }
 
@@ -127,9 +130,22 @@ img {
 
 .navigation-list-link,
 .address-list-link {
-    display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+}
+
+.icon-mail {
+    width: 16px;
+    height: 12px;
+    margin-right: 10px;
+    fill: currentColor;
+}
+
+.icon-smartphone {
+    width: 10px;
+    height: 16px;
+    margin-right: 10px;
+    fill: currentColor;
 }
 
 /*-------HEADER END--------------------*/
@@ -137,10 +153,16 @@ img {
 /*-------HERO----------*/
 
 .hero-section {
-    background: var(--darksections-color);
+    background: #C4C4C4;
     text-align: center;
     padding-top: 200px;
-    padding-bottom: 200px;    
+    padding-bottom: 200px;       
+    background-image: linear-gradient( 
+        rgba(47, 48, 58, 0.4), 
+        rgba(47, 48, 58, 0.4)), 
+        url("../img/hero/heroimg.jpg");       
+    background-repeat: no-repeat;
+    background-position: center;    
 }
 
 .hero-title {
@@ -149,7 +171,8 @@ img {
     line-height: 1.364;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--lighttitle-text-color);        
+    color: var(--lighttitle-text-color);  
+   
 }
 
 .modal-button {
@@ -182,7 +205,7 @@ img {
 
 .advantages-list-item {
     width: 270px;
-    height: 101px;
+    
 }
 
 .advantages-list-item:not(:last-child) {
@@ -206,6 +229,34 @@ img {
     line-height: 1.714;   
     letter-spacing: 0.03em;
     color: var(--primary-text-color);   
+}
+
+.advantages-list-item::before {
+    display: inline-block;
+    content: "";
+    width: 270px;
+    height: 120px;
+    background-color: var(--middlesection-color) ;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+}
+
+.advantages-list-item:nth-child(1)::before {
+    background-image: url(../img/advantages/antenna.svg);
+}
+
+.advantages-list-item:nth-child(2)::before {
+    background-image: url(../img/advantages/clock.svg);
+}
+
+.advantages-list-item:nth-child(3)::before {
+    background-image: url(../img/advantages/diagram.svg);
+}
+
+.advantages-list-item:nth-child(4)::before {
+    background-image: url(../img/advantages/astronaut.svg);
 }
 
 /*-------ADVANTAGES END----*/
@@ -235,7 +286,8 @@ img {
 }
 
 .jobs-title,
-.team-title {
+.team-title,
+.clients-title {
     font-weight: 700;
     font-size: 36px;
     line-height: 1.167;
@@ -263,8 +315,7 @@ img {
 }
 
 .team-list-item {
-    width: 270px;
-    height: 368px; 
+    width: 270px;     
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
     background-color: var( --lighttitle-text-color);     
@@ -300,14 +351,125 @@ img {
     color: var(--primary-text-color);
    
     width: 270px;
+    margin-bottom: 16px;
+}
+
+.social-list-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--lighttitle-text-color) ;
+}
+
+.social-list {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 32px;
+    padding-left: 32px;
+}
+
+.social-list-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--icon-color);
+}
+
+.social-list-link:hover {
+    background-color: var(--accent-color);
+}
+
+.social-list-link:hover .social-list-icon {
+    fill: var(--lighttitle-text-color);
 }
 
 /*-------TEAM END-------*/
+
+/*--------CLIENTS-------*/
+
+.clients-section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+
+.clients-title {
+    margin-bottom: 50px;
+}
+
+.clients-list {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.clients-list-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    height: 90px;
+    border: 1px solid var(--icon-color);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.logo {
+    fill: var(--icon-color);
+}
+
+.clients-list-link:hover {
+    border: solid var(--accent-color);
+}
+
+.clients-list-link:hover .logo {
+    fill: var(--accent-color);
+}
+
+.clients-icon1 {
+    width: 44px;
+    height: 49px;
+}
+
+.clients-icon2 {
+    width: 40px;
+    height: 52px;
+}
+
+.clients-icon3 {
+    width: 41px;
+    height: 43px;
+}
+
+.clients-icon4 {
+    width: 80px;
+    height: 42px;
+}
+
+.clients-icon5 {
+    width: 59px;
+    height: 47px;
+}
+
+.clients-icon6 {
+    width: 89px;
+    height: 45px;
+}
+
+/*--------CLIENTS END--------*/
 
 /*-----FOOTER--------*/
 
 .footer {
     background: var(--darksections-color);
+}
+
+.footer .container,
+.social-footer-list {
+    display: flex;
+}
+
+.contacts-footer {
     padding-top: 60px;
     padding-bottom: 60px;
 }
@@ -355,6 +517,54 @@ img {
 .footer-address-link,
 .footer-mail-link {
     margin-bottom: 9px;
+}
+
+.social-footer {
+    display: flex;
+    flex-direction: column;
+    width: 206px;
+    height: 80px;
+    padding-top: 72px;
+    padding-bottom: 100px;
+    margin-left: 70px;
+}
+
+.social-footer-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-title {
+    width: 145px;
+    height: 16px;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: var(--lighttitle-text-color);
+
+    margin-bottom: 20px;
+}
+
+.social-footer-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--lighttitle-text-color);
+}
+
+.social-footer-link:hover {
+    border: solid var(--accent-color);
+    background-color: var(--accent-color)
 }
 
 /*--------FOOTER END------*/
@@ -444,6 +654,9 @@ img {
 }
 
 /*--------PORTFOLIO GALERY END-------*/
+
+
+
 
 
 
